@@ -38,6 +38,6 @@
 <h1>Please select a location:</h1>
 
 	@foreach($locations as $key => $value)
-        <div class="city"> {{ $value->city }}<span class="name"> - <a href="/thislocation?id={{ $value->id }}">{{ $value->name }}</a> </span></div>
+        <div class="city"> {{ $value->city }}<span class="name"> - <a href="/thislocation/{{ $value->name }}">{{ $value->name }}</a> </span></div>
 	@endforeach
 @stop

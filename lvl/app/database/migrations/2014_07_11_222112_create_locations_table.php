@@ -15,8 +15,6 @@ class CreateLocationsTable extends Migration {
 			$table->string('city');
             $table->string('name')->unique();
 			$table->string('directions');
-			$table->string('rating');
-			$table->string('flag');
             $table->timestamps();
         });
 	}

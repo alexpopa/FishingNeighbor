@@ -51,16 +51,15 @@ class HomeController extends BaseController {
 		return View::make('location-form', array('data'=>$data));
 	}
 	
-	public function thisLocation()
-	{
+	public function thisLocation($name)
+	{		
+		$thislocation = Location::whereName($name)->first();
+
 		$data = array();
-		$id = $_GET['id'];
 	
 		if (Auth::check()) {
 			$data = Auth::user();
 		}
-		return View::make('all-location', array('data'=>$data))
-			->with('id', $id);
+		return View::make('thislocation', array('data'=>$data, 'thislocation'=>$thislocation));
 	}
-
 }

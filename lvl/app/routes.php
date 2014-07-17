@@ -5,9 +5,9 @@
 | Application Routes
 |--------------------------------------------------------------------------
 */
+
 /* Dependencies */
 Route::resource('location', 'LocationController');
-
 /* Facebook Routes */
 
 Route::get('login/fb', function() {
@@ -75,4 +75,5 @@ Route::get('newLocation', array('before' => 'auth', 'uses' => 'HomeController@ne
 
 /* All Locations */
 
-Route::get('thislocation', array('before' => 'auth', 'uses' => 'HomeController@thisLocation'));
+Route::get('thislocation/{name}', array('before' => 'auth', 'uses' => 'HomeController@thisLocation'));
+Route::resource('thislocation', 'thisLocationController');

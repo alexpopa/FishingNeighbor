@@ -35,7 +35,25 @@
 @if (Session::has('message'))
 	<div class="alert alert-info">{{ Session::get('message') }}</div>
 @endif
-	
+
+	<h1>{{ $thislocation->name }}</h1>
+    <p>{{ $thislocation->directions }}</p>
+    {{ HTML::ul($errors->all()) }}
+
+    {{ Form::open(array('url' => 'thislocation')) }}
     
-    
+   	    <div class="form-group">
+            {{ Form::textarea('content', Input::old('content'), array('class' => 'form-control', 'placeholder' => 'Comment')) }}
+            {{ Form::hidden('name', $thislocation->name) }}
+            {{ Form::hidden('user_id', $data['id']) }}
+            {{ Form::hidden('location_id', $thislocation->id) }}
+    	</div>
+        
+    {{ Form::submit('Submit Comment', array('class' => 'btn btn-primary')) }}
+    {{ Form::close() }}
+
+@foreach($thislocation->comments as $comment)
+    <img src="{{ $data['photo']}}"><h2>{{ $data['name']}}</h2>
+    <p>{{$comment->content}}</p>
+@endforeach
 @stop

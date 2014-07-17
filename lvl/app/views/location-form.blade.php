@@ -35,7 +35,7 @@
     {{ Form::open(array('url' => 'location')) }}
     
         <div class="form-group">
-            {{ Form::select('country', array('' => 'Select a Country', 'United States' => 'United States', 'Romania' => 'Romania')) }}
+            {{ Form::select('country', array('' => 'Select a Country', 'United States' => 'United States')) }}
         </div>
     
         <div class="form-group">
